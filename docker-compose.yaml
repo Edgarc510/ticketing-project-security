@@ -12,6 +12,19 @@ services:
       POSTGRES_DB: "ticketing-app"
     networks:
       - webnet
+    volumes:
+      - initdb:/var/lib/postgres/data
   ticketing-app:
     build: .
     container_name: ticketingapp
+    ports:
+      - "8080:8080"
+    depends_on:
+        - mypostgres
+    networks:
+        - webnet
+volumes:
+  initdb:
+networks:
+  webnet:
+    driver: bridge
