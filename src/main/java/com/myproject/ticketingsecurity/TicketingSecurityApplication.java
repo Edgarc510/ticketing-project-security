@@ -13,13 +13,5 @@ public class TicketingSecurityApplication {
     public static void main(String[] args) {
         SpringApplication.run(TicketingSecurityApplication.class, args);
     }
-    @Bean
-    public ModelMapper mapper(){
-        return new ModelMapper();
-    }
 
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
 }
